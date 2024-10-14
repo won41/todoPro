@@ -9,6 +9,9 @@ public interface TodoMapper {
     String getTime();
     void insert(TodoVO todoVO);
     List<TodoVO> getList();
+    TodoVO selectOne(int tno);
+    void delete(Long tno);
+    void update(TodoVO todoVO);
 }
 
 

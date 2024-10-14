@@ -12,7 +12,18 @@
         insert into tb1_todo (title, dueDate, writer) values ( #{title}, #{dueDate}, #{writer} )
     </insert>
 
+    <select id="selectOne" resultType="org.pgm.todopro.vo.TodoVO">
+        select * from tb1_todo where tno=#{tno}
+    </select>
+
     <select id="getList" resultType="org.pgm.todopro.vo.TodoVO">
         select * from tb1_todo
     </select>
+
+    <delete id="delete">
+        delete from tb1_todo where tno=#{tno}
+    </delete>
+    <update id="update">
+        update tb1_todo set title=#{title}, dueDate=#{dueDate}, finished=#{finished} where tno=#{tno}
+    </update>
 </mapper>

@@ -34,4 +34,24 @@ public class TodoServiceImpl implements TodoService{
                 .collect(Collectors.toUnmodifiableList());
         return dtoList;
     }
+
+    @Override
+    public TodoDTO getOne(int tno) {
+        log.info("service getOne");
+        TodoVO todoVO = todoMapper.selectOne(tno);
+        TodoDTO todoDTO = modelMapper.map(todoVO, TodoDTO.class);
+        return todoDTO;
+    }
+
+    @Override
+    public void remove(Long tno) {
+        log.info("service remove");
+        todoMapper.delete(tno);
+    }
+
+    @Override
+    public void modify(TodoDTO todoDTO) {
+        TodoVO todoVO = modelMapper.map(todoDTO, TodoVO.class);
+        todoMapper.update(todoVO);
+    }
 }

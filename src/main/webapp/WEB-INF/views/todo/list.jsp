@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<html>
+<%--<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +42,8 @@
         </div>
       </div>
     </nav>
-  </div>
+  </div>--%>
+<%@include file="../includes/header.jsp"%>
   <div class="row-content">
     <div class="card">
       <div class="card-header">
@@ -64,7 +65,7 @@
           <c:forEach items="${todoList}" var="dto">
           <tr>
             <th scope="row">${dto.tno}</th>
-            <td>${dto.title}</td>
+            <td><a href="/todo/read?tno=${dto.tno}">${dto.title}</a></td>
             <td>${dto.writer}</td>
             <td>${dto.dueDate}</td>
             <td>${dto.finished}</td>
@@ -72,13 +73,11 @@
           </c:forEach>
           </tbody>
         </table>
-        <div>
-          <a href="/todo/register">register</a>
-        </div>
       </div>
     </div>
   </div>
-  <div class="row footer">
+<%@include file="../includes/footer.jsp"%>
+  <%--<div class="row footer">
     <div class="row fixed-bottom" style="z-index: -100">
       <footer class="py-1 my-1">
         <p class="text-center text-muted">Footer</p>
@@ -89,3 +88,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
+--%>
